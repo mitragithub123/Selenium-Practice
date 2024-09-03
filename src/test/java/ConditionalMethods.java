@@ -30,6 +30,8 @@ public class ConditionalMethods {
 		// want to verify that the element is not disabled.
 		boolean firstNameStatus = driver.findElement(By.cssSelector("#FirstName")).isSelected();
 		System.out.println(firstNameStatus);
+		
+		driver.close();
 
 	}
 

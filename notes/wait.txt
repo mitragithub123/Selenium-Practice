@@ -1,0 +1,107 @@
+NoSuchElementException: Element not present on page. (Sysnchronization). It is the standard exception provided by Selenium WebDriver.
+
+ElementNotFoundException: Locator is wrong.It is not part of Selenium WebDriver but may appear in custom frameworks or libraries.
+
+Sleep
+======
+Thread.sleep(5000);
+Here 5000ms=5s
+It will pause the execution to 5s.
+Advantage:
+------------
+Easy to use.
+
+Disadvantages:
+---------------
+i) If the time is not sufficient, then you will get exception.
+ii) It will wait for maximum timeout. So, this reduce performance of script.
+iii) We have to write multiple times.
+
+Implicit wait
+================
+driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+Here 10s
+Advantage:
+------------
+i) Single time/ one statement
+ii) It will not wait for maximum timeout if the element is found.
+iii) Applicable to all elements.
+iv)Easy to use.
+
+Disadvantages:
+---------------
+i) If the time is not sufficient, then you will get exception.
+
+Expicit wait
+==============
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+WebElement userName = wait
+				.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[placeholder='Username']")));
+userName.sendKeys("Admin");
+
+WebElement password = wait
+				.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[placeholder='Password']")));
+password.sendKeys("admin123");
+
+WebElement loginBtn = wait
+				.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
+loginBtn.click();
+
+
+i)Conditional based, it will work more effectively.
+ii) Finding element is inclusive. (For some conditions)
+iii) It will wait for the condition to be true, then consider time.
+iv) We need to write multiple statements for multiple elements.
+
+Fluent wait
+==============
+Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(10)) 	//Maximum wait																	
+				.pollingEvery(Duration.ofSeconds(2) //Polling interval
+				.ignoring(NoSuchElementException.class); //Exceptions to ignore
+
+WebElement userName = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.cssSelector("input[placeholder='Username']"));
+			}
+		});
+userName.sendKeys("Admin");
+
+Maximum wait time = 10 seconds
+Polling interval = Every 2 seconds
+10/2=5
+It checks the condition every 2 seconds, so there will be up to 5 checks within
+the 10-second timeout.
+
+Time (s)	Action	Outcome
+-------------------------------------
+0	Start waiting	No condition check yet
+2	Check condition (1st poll)	If success, stop waiting
+4	Check condition (2nd poll)	If success, stop waiting
+6	Check condition (3rd poll)	If success, stop waiting
+8	Check condition (4th poll)	If success, stop waiting
+10	Check condition (5th and last poll)	If success, stop waiting; if not, throw TimeoutException
+
+
+Advantages:
+-----------------
+Timeout and Polling: Fluent Wait allows you to set custom timeouts and polling intervals
+Exception Handling: You can specify which exceptions to ignore during the wait period
+Handling Dynamic Elements: It’s particularly useful for handling elements that load dynamically or may not be immediately available.
+
+Disadvantages:
+-----------------
+Increased Complexity
+
+
+
+
+
+
+
+
+
+
+
+
