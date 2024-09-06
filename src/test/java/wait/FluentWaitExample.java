@@ -1,3 +1,4 @@
+package wait;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 import org.openqa.selenium.support.ui.FluentWait;
