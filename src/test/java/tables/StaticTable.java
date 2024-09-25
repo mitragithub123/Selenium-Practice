@@ -27,7 +27,7 @@ public class StaticTable {
 		// present in page)
 
 		// Read data from all rows and cols
-		System.out.println("BookName" + "\t" + "Author" + "\t" + "Subje" + "\t" + "Price");
+		System.out.println("BookName" + "\t" + "Author" + "\t" + "Subject" + "\t" + "Price");
 		for (int i = 2; i <= row; i++) {
 			for (int j = 1; j <= col; j++) {
 				String value = driver.findElement(By.xpath("//table[@name='BookTable']//tr[" + i + "]//td[" + j + "]"))
