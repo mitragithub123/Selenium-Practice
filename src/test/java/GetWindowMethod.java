@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.By;
@@ -27,7 +29,24 @@ public class GetWindowMethod {
 			Thread.sleep(5000);
 			System.out.println(driver.getTitle());
 		}
-		
+
+		// Switch to About page
+		/*List<String> ids = new ArrayList<>(driver.getWindowHandles());
+		driver.switchTo().window(ids.get(1));
+		System.out.println(driver.getTitle());
+
+		Thread.sleep(3000);*/
+
+		// Again switches back
+		/*driver.switchTo().window(ids.get(0));
+		System.out.println(driver.getTitle());*
+
+		// Loop through all windows and switch to each one
+		/*for (int i = 1; i < ids.size(); i++) {
+			driver.switchTo().window(ids.get(i));
+			System.out.println("Window " + i + " Title: " + driver.getTitle());
+		}*/
+
 	}
 
 }
