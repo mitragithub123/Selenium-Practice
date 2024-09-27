@@ -27,7 +27,7 @@ public class BrokenLinks {
 		for (WebElement link : links) {
 			String stringUrls = link.getAttribute("href");
 			// If the href value is empty or null, the URL cannot be verified
-			if (stringUrls == "null" || stringUrls.isEmpty()) {
+			if (stringUrls == "null" || stringUrls.isEmpty() || stringUrls.equals("#")) {
 				System.out.println("href value is null. So unable to verify the url");
 				continue;
 			}
@@ -59,7 +59,7 @@ public class BrokenLinks {
 
 3. For each link in the list of links:
    a. Extract the href attribute (URL)
-   b. If href is null or empty:
+   b. If href is null, empty or #:
        i. Print "href value is null. So unable to verify the URL"
        ii. Continue to the next link
    c. Convert href string to URL object
