@@ -25,6 +25,9 @@ public class ScreenshotOfElement {
 		// Capture screenshot of a web element
 		File source = simpleToStartSection.getScreenshotAs(OutputType.FILE);
 		File destination = new File(System.getProperty("user.dir") + "\\screenshot\\elementScreenshot.png");
+		if (!destination.exists()) {
+			destination.mkdirs();
+		}
 		source.renameTo(destination);
 
 	}

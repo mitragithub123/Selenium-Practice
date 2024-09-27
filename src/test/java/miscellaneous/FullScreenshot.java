@@ -23,6 +23,9 @@ public class FullScreenshot {
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE); // We do not sure whre the file is
 		File destination = new File(System.getProperty("user.dir") + "\\screenshot\\fullPage.png");
+		if (!destination.exists()) {
+			destination.mkdirs();
+		}
 		source.renameTo(destination); // Copy source file to destination
 	}
 

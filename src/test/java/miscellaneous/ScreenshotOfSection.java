@@ -31,6 +31,9 @@ public class ScreenshotOfSection {
 		// Capturing sxreenshot of a particular section
 		File source = simpleToStartSection.getScreenshotAs(OutputType.FILE);
 		File destination = new File(System.getProperty("user.dir") + "\\screenshot\\sectionScreenshot.png");
+		if (!destination.exists()) {
+			destination.mkdirs();
+		}
 		source.renameTo(destination);
 
 	}
