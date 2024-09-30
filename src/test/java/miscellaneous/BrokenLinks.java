@@ -16,7 +16,7 @@ public class BrokenLinks {
 	public static void main(String[] args) {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
-		driver.get("http://www.deadlinkcity.com/");
+		driver.get("http://www.orangescrum.com/");
 		driver.manage().window().maximize();
 
 		List<WebElement> links = driver.findElements(By.tagName("a"));
@@ -47,7 +47,7 @@ public class BrokenLinks {
 			}
 		}
 		System.out.println("Total no. of broken links: " + brokenLinks);
-		System.out.println("Total no. of not broken links: " + notBrokenLinks);
+		// System.out.println("Total no. of not broken links: " + notBrokenLinks);
 
 	}
 
