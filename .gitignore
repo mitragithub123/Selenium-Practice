@@ -4,3 +4,4 @@ target/
 .project
 /screenshots/
 crx/
+test-output/
