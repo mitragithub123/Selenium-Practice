@@ -81,11 +81,20 @@ public class ReadEmail {
 		// Email body validation
 		// Assert.assertTrue(message.text().body().contains("We're excited to have you
 		// onboard!"));
+		
+		message.text().body().replaceAll("\\([\\d+\\)]+|-|\\+\\d+", "") // Remove phone numbers
+        .replaceAll("https?://[\\w\\.\\/]+", "") // Remove URLs
+        .replaceAll("\\w+@\\w+\\.\\w+", ""); // Remove emails
 
-		String otpPattern = "^\\d{6}$"; // Regex pattern for 6-digit OTP
+		String otpPattern = "\\b\\d{6}\\b"; // Regex pattern for 6-digit OTP
 		Pattern pattern = Pattern.compile(otpPattern);
 		Matcher matcher = pattern.matcher(message.text().body());
-		System.out.println(matcher.group(1));
+		if (matcher.find()) {
+			String otp = matcher.group();
+			System.out.println("OTP: " + otp);
+		} else {
+			System.out.println("OTP not found in email body.");
+		}
 
 	}
 
