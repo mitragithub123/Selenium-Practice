@@ -16,20 +16,28 @@ public class SvgDemo {
 	public static void main(String[] args) throws InterruptedException {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://prsindia.org/covid-19/cases");
+		driver.get("https://oslive-v4.2.andolasoft.co.in/");
 		driver.manage().window().maximize();
-		
+
+		driver.findElement(By.cssSelector("input[placeholder='Enter your email']"))
+				.sendKeys("andolasoft.user133@gmail.com");
+		driver.findElement(By.cssSelector("input[placeholder='Enter your password']")).sendKeys("Mitra@1234");
+		driver.findElement(By.cssSelector("input[title='Sign In']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//a[normalize-space()='Dashboard']")).click();
+
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,200)");
-		
-		List<WebElement> circles = driver.findElements(By.xpath("//*[name()='svg']//*[local-name()='g' and contains(@class, 'highcharts-markers')]//path[@fill='red']"));
-		Actions action=new Actions(driver);
-		for(WebElement circle:circles) {
+		WebElement elementScroll = driver.findElement(By.xpath("//h4[normalize-space()='Resource Workload Status']"));
+		js.executeScript("arguments[0].scrollIntoView()", elementScroll);
+		Thread.sleep(5000);
+
+		List<WebElement> circles = driver
+				.findElements(By.xpath("//div[@id='apexcharts7iun7p9d']//*[name()='svg']//*[name()='path']"));
+		Actions action = new Actions(driver);
+		for (WebElement circle : circles) {
 			action.moveToElement(circle).moveByOffset(0, 10).build().perform(); // Not working
 			Thread.sleep(1000);
 		}
-		
-		
 
 	}
 
