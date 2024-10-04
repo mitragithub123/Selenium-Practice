@@ -50,7 +50,7 @@ public class ClickConfirmButtonOnMail {
 		Message message = waitForEmail(randomEmail, mailosaur);
 		if (message == null) {
 			System.out.println("Email not found.");
-			driver.quit(); // Exit if no email is received
+			driver.quit();
 			return;
 		}
 
@@ -58,7 +58,7 @@ public class ClickConfirmButtonOnMail {
 		String confirmLink = findConfirmEmailLink(message);
 		if (confirmLink != null) {
 			System.out.println("Found Confirm your email link: " + confirmLink);
-			driver.get(confirmLink); // Navigate to the confirmation link
+			driver.get(confirmLink);
 		} else {
 			System.out.println("Confirm your email link not found.");
 		}
