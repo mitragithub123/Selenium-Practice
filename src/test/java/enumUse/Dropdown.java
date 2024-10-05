@@ -1,22 +1,7 @@
 package enumUse;
 
 public enum Dropdown {
-	INDEX {
-		@Override
-		public String toString() {
-			return "index";
-		}
-	},
-	VALUE {
-		@Override
-		public String toString() {
-			return "value";
-		}
-	},
-	VISIBLETEXT {
-		@Override
-		public String toString() {
-			return "visibleText";
-		}
-	}
+	INDEX,
+	VALUE,
+	VISIBLETEXT
 }
