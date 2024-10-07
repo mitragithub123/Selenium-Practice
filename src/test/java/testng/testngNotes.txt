@@ -1,0 +1,45 @@
+TestNG - Java-based Unit Testing Tool
+======================================
+TestNG is widely preferred over JUnit in Selenium-based test automation frameworks due to several advantages.
+
+Advantages of TestNG Over JUnit:
+----------------------------------
+Parallel testing: Native support in TestNG, difficult in JUnit.
+Data-driven tests: @DataProvider in TestNG, more flexible than JUnit.
+Dependencies: TestNG allows method dependencies; JUnit does not.
+Test grouping: TestNG allows test groups, making it easier to organize and run selective tests. JUnit does not provide built-in support for grouping test cases.
+Configuration: TestNG provides flexible test execution through XML files. JUnit requires external tools or more complex configurations for achieving similar flexibility.
+
+Key Features of TestNG:
+---------------------------
+Creation of test cases and test suites.
+Grouping test cases.
+Prioritizing test case execution.
+Parameterization (passing arguments at runtime).
+Detailed reporting.
+
+Installation:
+-------------------
+Install the TestNG plugin from the Eclipse Marketplace and restart the IDE.
+Add the TestNG dependency to the pom.xml file for Maven projects, or right-click on the project, go to Build Path > Add Libraries > Select TestNG.
+
+@Test Method in TestNG:
+----------------------------
+TestNG executes @Test methods in alphabetical order by default (e.g., TC01.java).
+The execution order can be controlled using @Test(priority=number) (e.g., TC02.java).
+Priorities can be assigned with any number (not necessarily consecutive). (e.g., TC03.java).
+If no priority is assigned, the default priority is 0. (e.g., TC04.java).
+If multiple test methods have the same priority, they are executed in alphabetical order. (e.g., TC05.java).
+Negative priority values are also allowed. (e.g., TC06.java).
+TestNG execute test methods, if they have @Test annotations. (e.g., TC07.java).
+
+
+
+
+
+
+
+
+
+
+
