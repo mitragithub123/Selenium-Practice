@@ -2,6 +2,10 @@ NoSuchElementException: Element not present on page. (Sysnchronization). It is t
 
 ElementNotFoundException: Locator is wrong.It is not part of Selenium WebDriver but may appear in custom frameworks or libraries.
 
+Synchronization
+----------------
+The process of matching the selenium speed with the application is called as synchronization.
+
 Sleep
 ======
 Thread.sleep(5000);
@@ -26,7 +30,8 @@ Advantage:
 i) Single time/ one statement
 ii) It will not wait for maximum timeout if the element is found.
 iii) Applicable to all elements.
-iv)Easy to use.
+iv) Easy to use.
+v) Throws NoSuchElementException.
 
 Disadvantages:
 ---------------
@@ -53,6 +58,7 @@ i)Conditional based, it will work more effectively.
 ii) Finding element is inclusive. (For some conditions)
 iii) It will wait for the condition to be true, then consider time.
 iv) We need to write multiple statements for multiple elements.
+v) Throws TimeoutException.
 
 Fluent wait
 ==============

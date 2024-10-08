@@ -16,14 +16,14 @@ public class BrokenLinks {
 	public static void main(String[] args) {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://www.orangescrum.com/solutions/construction-project-management-software");
+		driver.get("http://www.assomanath.com/thank-you");
 		driver.manage().window().maximize();
 
 		List<WebElement> links = driver.findElements(By.tagName("a"));
 		// Returns list of urls in string format
 		System.out.println("Total links present in the page: " + links.size());
 		int brokenLinks = 0;
-		int notBrokenLinks = 0;
+		// int notBrokenLinks = 0;
 		for (WebElement link : links) {
 			String stringUrls = link.getAttribute("href");
 			// If the href value is empty or null, the URL cannot be verified
@@ -38,10 +38,10 @@ public class BrokenLinks {
 				if (connection.getResponseCode() >= 400) {
 					System.out.println(stringUrls + "----->" + "Broken link");
 					brokenLinks++;
-				} else {
-					System.out.println(stringUrls + "----->" + "Not Broken link");
-					notBrokenLinks++;
-				}
+				} /*
+					 * else { System.out.println(stringUrls + "----->" + "Not Broken link");
+					 * notBrokenLinks++; }
+					 */
 			} catch (Exception e) {
 
 			}
