@@ -55,5 +55,62 @@ TestNG Annotations
 @BeforeSuite-Executes before any tests in the <suite> tag are run.
 @AfterSuite-Executes after all tests in the <suite> tag have completed.
 
+Assertions
+------------
+Validation points
+If statements can not make a test method fail, that is why we use assertion.
+
+2 types
+Hard assertion (assertEquals(), assertNotEquals(), assertTrue(), assertFalse() etc.)
+Soft assertion
+
+
+When a hard assertion fails, it immediately stops the execution of the test method. Any code following the failed assertion will not be executed, as the test is considered failed at that point.
+
+Soft Assertions allow the test to continue execution even after a failed assertion.
+Hard Assertions stop execution immediately if they fail, skipping any remaining code in the test method.
+assertAll() is used at the end of a soft assertion test to collect and report any failures that occurred.
+
+public class AssertionHardVsSoft {
+	@Test(priority = 1)
+	public void testHardAssertion() {
+		System.out.println("Testing");
+		System.out.println("Testing");
+
+		// Hard assertion
+		Assert.assertEquals(1, 2); // If this statement fails here, it will not execute further lines.
+		// So we use soft assertions in this case.
+
+		System.out.println("Testing");
+		System.out.println("Testing");
+	}
+
+	@Test(priority = 2)
+	public void testSoftAssertion() {
+		System.out.println("Testing");
+		System.out.println("Testing");
+
+		// Soft assertion
+		SoftAssert sa = new SoftAssert(); // If this statement fails here, it will execute further lines too.
+		sa.assertEquals(1, 2);
+
+		System.out.println("Testing");
+		System.out.println("Testing");
+		
+		sa.assertAll(); // This will fail the test if any soft assertions failed (Mandatory)
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
