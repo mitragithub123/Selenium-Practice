@@ -35,11 +35,25 @@ TestNG execute test methods, if they have @Test annotations. (e.g., TC07.java).
 
 
 
+Test suite>>Test cases>>Test steps (Manual)
+XML file>>Classes>>Methods (Automation)
 
 
+TestNG Annotations
+--------------------
+@Test-Test method execution
 
+@BeforeMethod-Runs before each test method.
+@AfterMethod-Runs after each test method.
 
+@BeforeClass-Runs once before any test methods in the current class.
+@AfterClass- Runs once after all the test methods in the current class are executed.
 
+@BeforeTest-Runs before any test methods that are in the <test> tag in TestNG XML.
+@AfterTest-Runs after all the test methods in the <test> tag are executed.
+
+@BeforeSuite-Executes before any tests in the <suite> tag are run.
+@AfterSuite-Executes after all tests in the <suite> tag have completed.
 
 
 
