@@ -26,16 +26,23 @@ public class SvgDemo {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//a[normalize-space()='Dashboard']")).click();
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		WebElement elementScroll = driver.findElement(By.xpath("//h4[normalize-space()='Resource Workload Status']"));
-		js.executeScript("arguments[0].scrollIntoView()", elementScroll);
+		/*
+		 * JavascriptExecutor js = (JavascriptExecutor) driver; WebElement elementScroll
+		 * = driver.findElement(By.
+		 * xpath("//h4[normalize-space()='Resource Workload Status']"));
+		 * js.executeScript("arguments[0].scrollIntoView()", elementScroll);
+		 */
 		Thread.sleep(5000);
 
+		// Locate the SVG paths
 		List<WebElement> circles = driver
-				.findElements(By.xpath("//div[@id='apexcharts7iun7p9d']//*[name()='svg']//*[name()='path']"));
-		Actions action = new Actions(driver);
+				.findElements(By.xpath("//*[name()='svg']//*[name()='path' and @id='SvgjsPath2925']"));
+		System.out.println("Number of elements found: " + circles.size());
+
+		// Hover over elements using JavaScript
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		for (WebElement circle : circles) {
-			action.moveToElement(circle).moveByOffset(0, 10).build().perform(); // Not working
+			js.executeScript("arguments[0].dispatchEvent(new MouseEvent('mouseover', { bubbles: true }));", circle);
 			Thread.sleep(1000);
 		}
 
