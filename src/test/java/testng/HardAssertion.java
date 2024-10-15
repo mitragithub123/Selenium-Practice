@@ -15,7 +15,7 @@ public class HardAssertion {
 		// Assert.assertNotEquals(123,123); //failed // Expects not equal but 123=123
 		// Assert.assertNotEquals(123,345); //passed // Expects not equal and 123!=345
 
-		// Assert.assertTrue(true); //Pass
+		// Assert.assertTrue(true); //pass
 		// Assert.assertTrue(false); //failed
 
 		// Assert.assertTrue(1==2); //fail // Expects true and 1==2 is false
