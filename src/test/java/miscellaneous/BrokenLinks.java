@@ -16,7 +16,7 @@ public class BrokenLinks {
 	public static void main(String[] args) {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://www.orangescrum.app/");
+		driver.get("https://www.orangescrum.app/solutions/project-management-software-for-government-industry/");
 		driver.manage().window().maximize();
 
 		List<WebElement> links = driver.findElements(By.tagName("a"));
