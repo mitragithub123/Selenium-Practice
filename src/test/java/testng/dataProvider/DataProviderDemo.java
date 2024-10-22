@@ -46,13 +46,13 @@ public class DataProviderDemo {
 		driver.close();
 	}
 
-	@DataProvider(name = "login")
+	// {0, 2}: This means that the data provider will only pass the data from the
+	// 0th and 2nd rows (first and third sets of data) to the test method, skipping
+	// any other rows.
+	@DataProvider(name = "login", indices = { 0, 2 })
 	public Object[][] loginData() {
-		Object[][] data = {
-					{ "andolasoft.user133@gmail.com", "mitra@1234" },
-					{ "eqfvye@gmail.com", "123456" },
-					{ "eqfvyerrre@gmail.com", "123456" }
-				};
+		Object[][] data = { { "andolasoft.user133@gmail.com", "mitra@1234" }, { "eqfvye@gmail.com", "123456" },
+				{ "eqfvyerrre@gmail.com", "123456" }, { "eqfvyerrddre@gmail.com", "123456" } };
 		return data;
 	}
 }
