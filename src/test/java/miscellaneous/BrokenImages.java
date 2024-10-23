@@ -1,9 +1,6 @@
 package miscellaneous;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,39 +20,21 @@ public class BrokenImages {
 		List<WebElement> images = driver.findElements(By.tagName("img"));
 		System.out.println("Total images present in the page: " + images.size());
 
-		int brokenImages = 0;
+		int notDisplayedImages = 0;
 
 		for (WebElement image : images) {
 			String imageSrc = image.getAttribute("src");
 
 			// Check if the src attribute is empty or null
-			if (imageSrc == null || imageSrc.isEmpty()) {
-				System.out.println("Image src is null or empty. Unable to verify the image.");
-				continue;
+			if (!image.isDisplayed()) {
+				System.out.println(imageSrc + " -----> Image is not displayed on the page");
+				notDisplayedImages++;
+				continue; // Skip further checks for this image
 			}
 
-			try {
-				URL url = new URL(imageSrc); // Convert the src URL string to a URL object
-				HttpURLConnection connection = (HttpURLConnection) url.openConnection(); // Open HTTP connection
-				connection.setConnectTimeout(5000); // Set timeout for connection
-				connection.connect(); // Send the request
-
-				// Check if the image is broken
-				if (connection.getResponseCode() >= 400) {
-					System.out.println(imageSrc + " -----> Broken image");
-					brokenImages++;
-				} /*
-					 * else { System.out.println(imageSrc + " -----> Not broken"); }
-					 */
-			} catch (Exception e) {
-				
-			}
 		}
-
-		System.out.println("Total number of broken images: " + brokenImages);
-
-		driver.quit();
-
+		System.out.println("Total number of images not displayed on the page: " + notDisplayedImages);
+		// driver.quit();
 	}
 
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--Running multiple test cases in a suite is called, batch testing.-->
 <suite name="Master Test Suite">
 	<suite-files>
 		<suite-file
