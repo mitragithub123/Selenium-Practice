@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Master Test Suite">
+	<suite-files>
+		<suite-file
+			path="C:\Users\Chandan\eclipse-workspace\SeleniumPractice\src\test\java\testng\batchTesting\functionalTestng.xml"></suite-file>
+		<suite-file
+			path="C:\Users\Chandan\eclipse-workspace\SeleniumPractice\src\test\java\testng\batchTesting\sanityTestng.xml"></suite-file>
+	</suite-files>
+
+</suite> <!--
+Suite -->
