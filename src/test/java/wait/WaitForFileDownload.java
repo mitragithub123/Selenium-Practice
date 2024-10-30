@@ -1,4 +1,4 @@
-package miscellaneous;
+package wait;
 
 import java.io.File;
 import java.time.Duration;

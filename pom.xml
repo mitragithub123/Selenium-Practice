@@ -15,11 +15,14 @@
 		</dependency>
 
 		<!-- Selenium Java -->
+		<!--
+		https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>4.19.1</version>
+			<version>4.25.0</version>
 		</dependency>
+
 
 		<!-- WebDriverManager -->
 		<dependency>
@@ -63,7 +66,7 @@
 			<artifactId>ashot</artifactId>
 			<version>1.5.4</version>
 		</dependency>
-		
+
 		<!-- ExtentReports -->
 		<dependency>
 			<groupId>com.aventstack</groupId>
