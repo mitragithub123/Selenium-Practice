@@ -101,7 +101,13 @@ Disadvantages:
 Increased Complexity
 
 
-
+Notes
+-------
+If the maximum wait time is set to 10 seconds, but the element is located within 3 seconds, the behavior will be as follows:
+Thread.sleep(10000): Waits full 10 seconds regardless of element status.
+Implicit Wait: Proceeds immediately after finding the element.
+Explicit Wait (WebDriverWait): Proceeds immediately after the condition is met.
+Fluent Wait: Proceeds immediately after the condition is met, checks at 2-second intervals.
 
 
 
