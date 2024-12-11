@@ -1,0 +1,194 @@
+NoSuchElementException:
+----------------------------
+Element not present on page. (Synchronization). trying to interact with an WebElement that doesn't exist in the page.
+e.g WebElement element = driver.findElement(By.id("elementId"));
+#1
+try {
+    WebElement element = driver.findElement(By.id("elementId"));
+} catch (NoSuchElementException e) {
+    System.out.println("Element not found: " + e.getMessage());
+}
+
+#2
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("elementId")));
+
+ElementNotVisibleException
+----------------------------
+The ElementNotVisibleException in Selenium is an exception thrown when an element is present in the DOM but is not visible (not displayed) on the screen.
+e.g WebElement element = driver.findElement(By.id("elementId"));
+element.click();
+
+#1
+try {
+WebElement element = driver.findElement(By.id("elementId"));
+if (element.isDisplayed()) {
+    element.click();
+}
+} catch (ElementNotVisibleException e) {
+    System.out.println("Element not found: " + e.getMessage());
+}
+
+#2
+js.executeScript("arguments[0].style.display = 'block';", element); // Make it visible first.
+element.click(); 
+
+#3
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+wait.until(ExpectedConditions.visibilityOf(element));
+element.click();
+
+
+StaleElementReferenceException
+-----------------------------------
+The DOM structure has changed due to JavaScript, AJAX calls, or page reloads, and the previously located element is no longer valid.
+The element has been removed/ deleted from the DOM.
+Navigating to a New Page
+The element is refreshed or re-rendered (e.g., dynamic table updates).
+
+e.g WebElement element = driver.findElement(By.id("elementId"));
+element.click();
+
+#1: Relocate the Element before interacting with it.
+try {
+    WebElement element = driver.findElement(By.id("elementId"));
+    element.click();
+} catch (StaleElementReferenceException e) {
+	WebElement element = driver.findElement(By.id("elementId")); // Relocate the element
+    element.click();
+}
+
+#2
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("elementId")));
+element.click();
+
+#3: Page Refresh or Wait
+driver.navigate().refresh();
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("elementId")));
+element.click();
+
+ElementClickInterceptedException
+----------------------------------
+It occurs when Selenium is unable to click on an element because another element (e.g., an overlay, modal, or popup) is obstructing it.
+e.g WebElement button = driver.findElement(By.id("elementId"));
+button.click();
+
+#1
+try {
+    WebElement button = driver.findElement(By.id("elementId"));
+	button.click();
+} catch (ElementClickInterceptedException e) {
+    System.out.println("Element not found: " + e.getMessage());
+}
+
+#2
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.id("elementId")));
+button.click();
+
+#3
+JavascriptExecutor js = (JavascriptExecutor) driver;
+WebElement button = driver.findElement(By.id("elementId"));
+js.executeScript("arguments[0].click();", button);
+
+ElementNotInteractableException
+--------------------------------
+It occurs when Selenium attempts to interact with an element that exists in the DOM but is not interactable (e.g., not visible, disabled, or hidden).
+e.g WebElement button = driver.findElement(By.id("elementId"));
+	button.click();
+
+#1
+try {
+    WebElement button = driver.findElement(By.id("elementId"));
+	button.click();
+} catch (ElementNotInteractableException e) {
+    System.out.println("Element not found: " + e.getMessage());
+}
+
+#2
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.id("elementId")));
+button.click()
+
+#3: If it is hidden
+JavascriptExecutor js = (JavascriptExecutor) driver;
+WebElement button = driver.findElement(By.id("elementId"));
+js.executeScript("arguments[0].click();", button);
+
+#4: If it is disabled
+js.executeScript("arguments[0].style.display = 'block';", element); // Make it visible first.
+element.click(); 
+
+NoSuchAttributeException
+-------------------------
+The attribute you are trying to access does not exist in the HTML of the element.
+e.g String attribute = driver.findElement(By.id("elementId")).getAttribute("nonExistentAttribute");
+
+#1
+try {
+    String attribute = driver.findElement(By.id("elementId")).getAttribute("nonExistentAttribute");
+    System.out.println("Attribute value: " + attribute);
+} catch (NoSuchAttributeException e) {
+    System.out.println("No such attribute: " + e.getMessage());
+}
+
+NoSuchWindowException
+------------------------
+It occurs in Selenium when you attempt to switch to a window that does not exist or has been closed.
+e.g driver.switchTo().window("windowName");
+
+#1
+try {
+    driver.switchTo().window("windowName");
+} catch (NoSuchWindowException e) {
+    System.out.println("No such window: " + e.getMessage());
+}
+
+
+NoSuchFrameException
+-----------------------
+It occurs in Selenium when you attempt to switch to a frame that does not exist in the current context.
+e.g driver.switchTo().frame("frameNameOrId");
+
+#1
+try {
+    driver.switchTo().frame("frameNameOrId");
+} catch (NoSuchFrameException e) {
+    System.out.println("No such frame: " + e.getMessage());
+}
+
+
+NoAlertPresentException
+----------------------------
+It occurs when you attempt to interact with an alert using Selenium, but no alert is currently present on the page.
+e.g Alert alert = driver.switchTo().alert().accept();
+	alert.accept();
+
+#1
+try {
+    Alert alert = driver.switchTo().alert().accept();
+	alert.accept();
+} catch (NoAlertPresentException e) {
+    System.out.println("No alert present." + e.getMessage());
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

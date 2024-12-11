@@ -1,4 +1,4 @@
-NoSuchElementException: Element not present on page. (Sysnchronization). It is the standard exception provided by Selenium WebDriver.
+NoSuchElementException: Element not present on page. (Synchronization). It is the standard exception provided by Selenium WebDriver.
 
 ElementNotFoundException: Locator is wrong.It is not part of Selenium WebDriver but may appear in custom frameworks or libraries.
 
