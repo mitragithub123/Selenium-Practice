@@ -16,7 +16,7 @@ public class PageLoadStrategyDemo {
 		// options.setPageLoadStrategy(PageLoadStrategy.EAGER);
 		// options.setPageLoadStrategy(PageLoadStrategy.NONE);
 
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new ChromeDriver(options);
 		driver.get("https://www.orangescrum.com/");
 
 	}
