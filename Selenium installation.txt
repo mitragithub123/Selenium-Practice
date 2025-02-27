@@ -1,0 +1,105 @@
+**Java Installation**
+-------------------
+1. Download Java:
+   - Visit: [Java Downloads](https://www.oracle.com/in/java/technologies/downloads/)
+   - Select: Windows >> x64 Installer >> Download
+   - Install the downloaded file.
+
+2. Set Java in Environment Variables:
+   - Open System Properties >> Environment Variables.
+   - Under System Variables, add:
+     - JAVA_HOME = C:\Program Files\Java\jdk-21
+     - Add `%JAVA_HOME%\bin` to the "Path" variable.
+   - Click Save.
+
+3. Verify Installation:
+   - Open CMD and type:
+     java -version
+
+---
+
+**Maven Installation**
+---------------------
+1. Download and Install Maven:
+   - Visit: [Maven Downloads](https://maven.apache.org/download.cgi)
+   - Select: Binary zip archive >> `apache-maven-3.9.9-bin.zip`
+   - Extract and install it.
+
+2. Set Maven in Environment Variables:
+   - Open System Properties >> Environment Variables.
+   - Under System Variables, add:
+     - `MAVEN_HOME = C:\Program Files\Maven\apache-maven-3.9.9`
+     - Add `%MAVEN_HOME%\bin` to the `Path` variable.
+   - Click Save.
+
+3. Verify Installation:
+   - Open CMD and type:
+     mvn -version
+
+---
+
+**Download Eclipse IDE**
+-----------------------
+1. Visit: [Eclipse Downloads](https://www.eclipse.org/downloads/)
+2. Download and install Eclipse for Java Developers.
+
+---
+
+**Create a Maven Project in Eclipse**
+----------------------------------
+1. Open Eclipse.
+2. Go to File >> New >> Project >> Maven >> Maven Project.
+3. Choose "Skip archetype selection" > Enter "maven-archetype-quickstart" in the filter.
+4. Select "org.apache.maven.archetypes" > Click Next.
+5. Enter Artifact Id and Group Id > Click Next.
+6. In the Console, scroll down and type Y and hit enter.
+
+**Alternative Method:**
+- Without archetype selection:
+  1. Open Eclipse.
+  2. Go to File >> New >> Project >> Maven >> Maven Project.
+  3. Check archetype selection.
+  4. A Maven project will be created.
+
+- Convert an existing Java project to Maven:
+  1. Open Eclipse.
+  2. Go to File >> New >> Project >> Java >> Java Project.
+  3. Right-click the project in Project Explorer.
+  4. Click Maven > Convert to Maven > Click Save
+
+---
+
+**Install Selenium, TestNG, WebDriver Manager**
+----------------------------------
+1. Open the pom.xml file of your Maven project.
+2. Add the following dependencies inside `<dependencies>`:
+
+<dependencies>
+    <!-- TestNG -->
+    <dependency>
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <version>7.11.0</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- Selenium Java -->
+    <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>4.25.0</version>
+    </dependency>
+
+    <!-- WebDriverManager -->
+    <dependency>
+        <groupId>io.github.bonigarcia</groupId>
+        <artifactId>webdrivermanager</artifactId>
+        <version>5.9.3</version>
+    </dependency>
+</dependencies>
+
+
+3. Save the pom.xml file.
+4. Right-click the project in Project Explorer.
+5. Click Maven > Update Project.
+
