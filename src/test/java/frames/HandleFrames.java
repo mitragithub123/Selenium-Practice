@@ -12,7 +12,7 @@ public class HandleFrames {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://ui.vision/demo/webtest/frames/");
-		driver.manage().window().maximize();
+		driver.manage().window().maximize();	
 		
 		//driver.switchTo().frame(WebElement)
 		WebElement frame1=driver.findElement(By.xpath("//frame[@src='frame_1.html']"));
