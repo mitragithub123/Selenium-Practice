@@ -1,8 +1,9 @@
-package testng;
+package testng.assertion;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AssertionDemo1 {
+public class AssertionDemo2 {
 
 	@Test
 	public void testAssertion() {
@@ -10,11 +11,12 @@ public class AssertionDemo1 {
 		String actualOutput = "Sriram1";
 		if (expOutput.equals(actualOutput)) {
 			System.out.println("Test Pass");
+			Assert.assertTrue(true);
 		} else {
 			System.out.println("Test Fail");
+			Assert.assertTrue(false);
+			// Assert.fail();
 		}
 	}
 
 }
-
-//If statements can not make a test method fail, that is why we use assertion.
