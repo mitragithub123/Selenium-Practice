@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite thread-count="5" name="Suite" parallel="tests">
-	<!--Remove thread count from class and add to test method
-Thread count must be between 2 to 5-->
+	<!--Remove thread count from test and add to suite Thread count must be 
+		between 2 to 5 -->
+	<!-- Runs multiple test tags in parallel -->
 	<test name="chromeTest">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class name="testng.parameter.Parameter" />
 		</classes>
-	</test> <!--
-	Test -->
+	</test> <!-- Test -->
 
 	<test name="firefoxTest">
 		<parameter name="browser" value="firefox"></parameter>
@@ -17,14 +17,25 @@ Thread count must be between 2 to 5-->
 			<class name="testng.parameter.Parameter" />
 		</classes>
 
-	</test> <!--
-	Test -->
+	</test> <!-- Test -->
 	<test name="EdgeTest">
 		<parameter name="browser" value="edge"></parameter>
 		<classes>
 			<class name="testng.parameter.Parameter" />
 		</classes>
-	</test> <!--
-	Test -->
-</suite> <!--
-Suite -->
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
+<!-- chromeTest will run in parallel -->
+<!-- All the methods inside Parameter class will run in sequential -->
+<!-- firefoxTest will run in parallel -->
+<!-- All the methods inside Parameter class will run in sequential -->
+<!-- EdgeTest will run in parallel -->
+<!-- All the methods inside Parameter class will run in sequential -->
+
+
+
+
+
+
+
+
